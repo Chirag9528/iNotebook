@@ -22,7 +22,7 @@ const NoteState = (props)=>{
           "__v": 0
         },
         {
-            "_id": "662a8b9ad533a793df1a782c",
+            "_id": "662a8b9ad533a793dsf1a782c",
             "user": "66239eeb7e3dec256bdacde9",
             "title": "My title2",
             "description": "Please wake up early",
@@ -31,7 +31,7 @@ const NoteState = (props)=>{
             "__v": 0
           },
           {
-            "_id": "662aa4350f32c9bc5b7b7dfa",
+            "_id": "662aa4350f32c9bc5b7bs7dfa",
             "user": "66239eeb7e3dec256bdacde9",
             "title": "My title2",
             "description": "Please wake up early",
@@ -39,7 +39,7 @@ const NoteState = (props)=>{
             "date": "2024-04-25T18:43:01.980Z",
             "__v": 0
           },{
-            "_id": "662a8b9ad533a793df1a782c",
+            "_id": "662a8bs9ad533a793df1a782c",
             "user": "66239eeb7e3dec256bdacde9",
             "title": "My title2",
             "description": "Please wake up early",
@@ -48,7 +48,7 @@ const NoteState = (props)=>{
             "__v": 0
           },
           {
-            "_id": "662aa4350f32c9bc5b7b7dfa",
+            "_id": "6s62aa4350f32c9bc5b7b7dfa",
             "user": "66239eeb7e3dec256bdacde9",
             "title": "My title2",
             "description": "Please wake up early",
@@ -58,8 +58,37 @@ const NoteState = (props)=>{
           }
       ]
     const [notes , setNotes] = useState(notesinitial)
+
+      // Add a note
+      const addNote = (title , description , tag)=>{
+        // TODO api call
+        console.log("Adding a new note");
+        const note = {
+          "_id": "6s62aa4350f32c9bc5b7b7dfa",
+          "user": "66239eeb7e3dec256bdacde9",
+          "title": title,
+          "description": description,
+          "tag": tag,
+          "date": "2024-04-25T18:43:01.980Z",
+          "__v": 0
+        };
+        setNotes(notes.concat(note))
+      }
+
+      // Delete a note
+      const deleteNote = ()=>{
+
+      }
+
+      
+      // Edit a note
+      const editNote = ()=>{
+
+      }
+
+
     return (
-        <NoteContext.Provider value = {{notes,setNotes}}>
+        <NoteContext.Provider value = {{notes , addNote , deleteNote , editNote}}>
             {props.children}
         </NoteContext.Provider>
     )
