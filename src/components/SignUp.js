@@ -33,6 +33,7 @@ const Signup = (props) => {
   return (
     <>
     <form onSubmit={handleSubmit}>
+      <h2>Register Here</h2>
     <div className="mb-3">
       <label htmlFor="name" className="form-label">Name</label>
       <input type="text" className="form-control" id="name" name='name' minLength={5} onChange={onChange}  aria-describedby="emailHelp"/>
