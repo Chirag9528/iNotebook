@@ -6,13 +6,14 @@ const Login = (props) => {
     let navigate = useNavigate()
     const handleSubmit = async (e)=>{
         e.preventDefault();
-        const response = await fetch('http://localhost:8000/api/auth/login',{
+        const response = await fetch('https://i-notebook-backend-beryl.vercel.app/api/auth/login',{
             method : 'POST',
             headers : {
                 'Content-Type':'application/json'
             },
             body : JSON.stringify({email : credentials.email , password:  credentials.password})
         });
+        
         const json = await response.json()
         if (json.success){
             // save the auth token and redirect

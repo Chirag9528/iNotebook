@@ -7,7 +7,11 @@ const Signup = (props) => {
     const handleSubmit = async (e)=>{
         e.preventDefault();
         const {name , email , password} = credentials;
-        const response = await fetch('http://localhost:8000/api/auth/createuser',{
+        console.log("name: ",name);
+        console.log("email: ",email);
+        console.log("password: ",password);
+
+        const response = await fetch('https://i-notebook-backend-beryl.vercel.app/api/auth/createuser',{
             method : 'POST',
             headers : {
                 'Content-Type':'application/json'
@@ -15,6 +19,7 @@ const Signup = (props) => {
             body : JSON.stringify({name, email , password})
         });
         const json = await response.json()
+        console.log("json: ",json)
         if (json.success){
           localStorage.setItem('token' , json.authtoken);
           props.showAlert("Account Created Successfully" , "success")
