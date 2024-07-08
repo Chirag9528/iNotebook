@@ -17,8 +17,6 @@ const NoteState = (props)=>{
       });
 
       const json = await response.json()
-
-      console.log(json);
       setNotes(json)
 
     }
@@ -27,7 +25,6 @@ const NoteState = (props)=>{
 
       // Add a note
       const addNote = async ( title , description , tag)=>{
-        // TODO api call
         // eslint-disable-next-line
         const response = await fetch(`${host}/api/notes/addnote/`,{
           method : 'POST',
@@ -39,14 +36,11 @@ const NoteState = (props)=>{
         });
 
         const note = await response.json();
-
-        console.log("Adding a new note");
         setNotes(notes.concat(note))
       }
 
       // Delete a note
       const deleteNote = async (id)=>{
-        // TODO : do api call
         const response = await fetch(`${host}/api/notes/deletenote/${id}`,{
           method : 'DELETE',
           headers: {
@@ -54,10 +48,8 @@ const NoteState = (props)=>{
             'auth-token' : localStorage.getItem('token')
           }
         });
+        // eslint-disable-next-line
         const json = response.json();
-        console.log(json)
-
-        console.log("Deleting the note "+id);
         const newnotes = notes.filter((note)=>{return note._id!==id});
         setNotes(newnotes)
       }
@@ -65,7 +57,6 @@ const NoteState = (props)=>{
       
       // Edit a note
       const editNote = async (id , title , description , tag)=>{
-        // API CALL
         const response = await fetch(`${host}/api/notes/updatenote/${id}`,{
           method : 'PUT',
           headers: {
@@ -88,7 +79,6 @@ const NoteState = (props)=>{
             break;
           }
         }
-        console.log(newNotes);
         setNotes(newNotes)
       }
 

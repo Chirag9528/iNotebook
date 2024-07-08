@@ -10,7 +10,7 @@ const Notes = (props) => {
     let navigate = useNavigate()
     useEffect(()=>{
       if (localStorage.getItem('token')){
-        console.log(localStorage.getItem('token'))
+        // console.log(localStorage.getItem('token'))
         getNotes()
       }
       else{
@@ -32,10 +32,8 @@ const Notes = (props) => {
     
     const handleClick = (e)=>{
         // e.preventDefault();
-        console.log("id: ",note.id);
         refClose.current.click()
         editNote(note.id , note.etitle , note.edescription , note.etag);
-        console.log("Updating note...")
         props.showAlert("Updated Successfully" , "success")
 
     }
